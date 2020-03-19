@@ -15,5 +15,5 @@ jobs:
     name: Check the variable is accesible here
     runs-on: windows-latest
     steps:
-      name: Test it!
-      run: echo Test the input $INPUT_MY_NAME
+      - name: Test it!
+        run: echo Test the input $INPUT_MY_NAME
