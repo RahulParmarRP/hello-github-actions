@@ -10,3 +10,7 @@ jobs:
       - uses: ./action-a
         with:
           MY_NAME: "Rahul"
+
+  test:
+    name: Check the variable is accesible here
+    run: echo Test the input $INPUT_MY_NAME
