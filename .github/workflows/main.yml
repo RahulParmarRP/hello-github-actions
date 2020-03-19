@@ -16,4 +16,4 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Test it!
-        run: echo "Test the input ${{ INPUT_MY_NAME }}"
+        run: echo "Test the input ${{ TEST_VAR }}"
