@@ -8,6 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: ./action-a
+        env:
+          INPUT_TEST_VAR: "TEST IT"
         with:
           MY_NAME: "Rahul"
 
