@@ -9,14 +9,17 @@ jobs:
       - uses: actions/checkout@v1
       - uses: ./action-a
         env:
-          INPUT_TEST_VAR: "TEST IT"
+          TEST_IN_SHELL: "TEST_IN_SHELL"
         with:
           MY_NAME: "Rahul"
-
+      - name: Test it!
+        run: |
+          echo "Test the input ${{ TEST_FROM_SHELL }}"
+          
   test:
     name: Check the variable is accesible here
     runs-on: windows-latest
     steps:
       - name: Test it!
         run: |
-          echo "Test the input ${{ env.INPUT_TEST_VAR }}"
+          echo "Test the input ${{ TEST_FROM_SHELL }}"
