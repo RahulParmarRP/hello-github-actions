@@ -1,7 +1,10 @@
 name: A workflow for my Hello World file
 on: push
-
+env:
+  GLOBAL_ENV_VAR : "GLOBAL ENV VAR"
+  
 jobs:
+
   build:
     name: Hello world action
     runs-on: ubuntu-latest
@@ -14,7 +17,9 @@ jobs:
           MY_NAME: "Rahul"
       - name: Test it!
         run: |
-          echo "Test the input ${{ TEST_FROM_SHELL }}"
+          echo "Test the input ${{ env.TEST_FROM_SHELL }}"
+          echo "Test the input ${{ env.TEST_IN_SHELL }}"
+          echo "Global Test the input ${{ env.GLOBAL_ENV_VAR }}"
           
   test:
     name: Check the variable is accesible here
@@ -22,4 +27,6 @@ jobs:
     steps:
       - name: Test it!
         run: |
-          echo "Test the input ${{ TEST_FROM_SHELL }}"
+          echo "Test the input ${{ env.TEST_FROM_SHELL }}"
+          echo "Test the input ${{ env.TEST_IN_SHELL }}"
+          echo "Global Test the input ${{ env.GLOBAL_ENV_VAR }}"
