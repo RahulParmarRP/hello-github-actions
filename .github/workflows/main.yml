@@ -8,6 +8,8 @@ jobs:
   build:
     name: Hello world action
     runs-on: ubuntu-latest
+    env:
+      JOB_LEVEL_ENV_VAR: "job level env var"
     steps:
       - uses: actions/checkout@v1
       - uses: ./action-a
@@ -19,8 +21,11 @@ jobs:
         run: |
           echo "Test ${{ env.TEST_FROM_SHELL }}"
           echo "Test ${{ env.TEST_IN_SHELL }}"
+          echo "Test at job level ${{ env.JOB_LEVEL_ENV_VAR }}"
           echo "Global Test ${{ env.GLOBAL_ENV_VAR }}"
-          
+      - name: Second step
+        run: echo "Test at job level ${{ env.JOB_LEVEL_ENV_VAR }}"
+
   test:
     name: Check the variable is accesible here
     runs-on: ubuntu-latest
